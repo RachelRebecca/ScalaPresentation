@@ -13,7 +13,6 @@ object Main {
     notes()
 
     // Primes
-
     val calculator = new PrimeCalculator
     val primesList = calculator.calculatePrimesUntil(100)
     primesList.foreach(value => println(value))

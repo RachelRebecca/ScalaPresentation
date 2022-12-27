@@ -5,10 +5,9 @@ class A2(val name: String, val id: Int) {
 
 
   // method overriding equals method, using a match statement
-  // (sort of like a switch statement)
-  // basically: switch "other"
-      // case that: A2 — tests to see whether that is an instance of A2
-      // the expression that canEqual this tests that the current instance (this) is an instance of that.
+  // sort of like a switch statement --> switch "other"
+  // case that: A2 — tests to see whether that is an instance of A2
+  // the expression that canEqual this tests that the current instance (this) is an instance of that.
   // case _ is the default
   override def equals(other: Any): Boolean = other match {
     case that: A2 =>
