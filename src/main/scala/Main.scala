@@ -1,5 +1,22 @@
 object Main {
+
   var public = 1000
+
+  def main(args: Array[String]): Unit = {
+    // TODO: Add program arguments
+    println("Hello " + args.mkString(" "))
+    println(args.length)
+    // notice the parentheses to access the first index of args array
+    println(args(0))
+
+    // Basic overview of Scala
+    notes()
+
+    // Primes
+    /* val calculator = new PrimeCalculator
+     val primesList = calculator.calculatePrimesUntil(100)
+     primesList.foreach(value => println(value))*/
+  }
 
   def notes(): Unit = {
     // https://docs.scala-lang.org/tour/tour-of-scala.html
@@ -40,14 +57,17 @@ object Main {
     // methods - add two Int parameters, and return an Int
     // ORDER: def, name, parameter list(s), a return type, and a body
     def add(x: Int, y: Int): Int = x + y
+
     println(add(1, 2)) // 3
 
     // multiple parameter lists allowed
     def addThenMultiply(x: Int, y: Int)(multiplier: Int): Int = (x + y) * multiplier
+
     println(addThenMultiply(1, 2)(3)) // 9
 
     // no parameters also allowed
     def name: String = System.getProperty("user.name")
+
     println("Hello, " + name + "!")
 
     // multiline functions, notice how its declared inside a function
@@ -55,13 +75,29 @@ object Main {
       val square = input * input
       square.toString // return statement goes here, last line
     }
+
     println(getSquareString(2.5)) // 6.25
 
+    // string interpolation
+    val nameExample = "James"
+    // add s - allows the usage of variables directly in the string
+    println(s"Hello, $nameExample")
+    println(s"1 + 1 = ${1 + 1}")
+    // must escape the dollar sign
+    println(s"New offers starting at $$14.99")
+    // triple double quotes escapes the double quote
+    val person = s"""{"name":$nameExample}"""
+    println(person)
+    val height = 1.9d
+    // f allows the creation of simple formatted strings, similar to printf
+    println(f"$nameExample%s is $height%2.2f meters tall")
+    // raw vs s
+    println(s"a\nb")
+    println(raw"a\nb")
 
     // classes
     // syntax: class keyword, name, constructor parameters
-    class Greeter(prefix: String, suffix: String)
-    {
+    class Greeter(prefix: String, suffix: String) {
       // note :Unit means void
       def greet(name: String): Unit =
         println(prefix + " " + name + " " + suffix)
@@ -97,7 +133,7 @@ object Main {
     class A(val name: String, val id: Int)
     case class B(name: String, id: Int)
 
-    // objects -
+    // objects - single instances of their own definitions
     object Test {
       val a1 = new A("a", 1)
       val a2 = new A("a", 1)
@@ -106,6 +142,7 @@ object Main {
       // notice how this is easily accessed - AND notice that id is NOT accessed
       println(a1.name)
 
+      // notice that traits override equals for you
       var b1 = B("b", 1)
       var b2 = B("b", 1)
       println(b1 == b2) //this returns true
@@ -114,24 +151,29 @@ object Main {
     Test // note all I need to do is call the object and it runs
 
     // TODO: switch A to A2
+
     // traits
+    /*
+    Traits are abstract data types containing certain fields and methods.
+    In Scala inheritance, a class can only extend one other class,
+    but it can extend multiple traits.
+     */
+    trait GreeterTrait {
+      def greet(name: String): Unit =
+        println("Hello, " + name + "!")
+    }
+    class DefaultGreeter extends GreeterTrait
+    class CustomizableGreeter(prefix: String, postfix: String) extends GreeterTrait {
+      override def greet(name: String): Unit =
+        println(prefix + name + postfix)
+    }
 
-  }
+    val defaultGreeter = new DefaultGreeter()
+    defaultGreeter.greet("Scala developer")
 
-  def main(args: Array[String]): Unit = {
-    // TODO: Add program arguments
-    println("Hello " + args.mkString(" "))
-    println(args.length)
-    // notice the parentheses to access the first index of args array
-    println(args(0))
+    val customGreeter = new CustomizableGreeter("How are you, ", "?")
+    customGreeter.greet("Scala developer")
 
-    // Basic overview of Scala
-    notes()
-
-    // Primes
-   /* val calculator = new PrimeCalculator
-    val primesList = calculator.calculatePrimesUntil(100)
-    primesList.foreach(value => println(value))*/
   }
 
   def play(y: Int): Int = {

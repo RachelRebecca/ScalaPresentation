@@ -1,6 +1,15 @@
 class A2(val name: String, val id: Int) {
+
+  // method taking in a Generic parameter and checking if it is an A2
   def canEqual(other: Any): Boolean = other.isInstanceOf[A2]
 
+
+  // method overriding equals method, using a match statement
+  // (sort of like a switch statement)
+  // basically: switch "other"
+      // case that: A2 — tests to see whether that is an instance of A2
+      // the expression that canEqual this tests that the current instance (this) is an instance of that.
+  // case _ is the default
   override def equals(other: Any): Boolean = other match {
     case that: A2 =>
       (that canEqual this) &&
@@ -15,5 +24,4 @@ class A2(val name: String, val id: Int) {
   }
 
   override def toString = s"A($name, $id)"
-
 }
