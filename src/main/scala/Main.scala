@@ -13,9 +13,18 @@ object Main {
     notes()
 
     // Primes
-    /* val calculator = new PrimeCalculator
-     val primesList = calculator.calculatePrimesUntil(100)
-     primesList.foreach(value => println(value))*/
+
+    val calculator = new PrimeCalculator
+    val primesList = calculator.calculatePrimesUntil(100)
+    primesList.foreach(value => println(value))
+
+    // Midpoint Formula
+    val midpointCalculator = new MidpointCalculator
+    // TODO: when n = 10, integralV1 is 66 not 56
+    val integralV1 = midpointCalculator.midpointV1(2, 4, 1000)
+    val integralV2 = midpointCalculator.midpointV2(2, 4, 10)
+    println(integralV1)
+    println(integralV2)
   }
 
   def notes(): Unit = {
@@ -94,6 +103,27 @@ object Main {
     // raw vs s
     println(s"a\nb")
     println(raw"a\nb")
+
+    // for loops
+    for (a <- 1 to 3) {
+      println("Value of a: " + a);
+    }
+
+    // 2D for loop
+    for {
+      a <- 1 to 3
+      b <- 1 to 3
+    } {
+      println("2D value of a: " + a);
+      println("2D value of b: " + b);
+    }
+
+    // while loops
+    var a = 15
+    while (a < 20) {
+      println("While loop value of a: " + a);
+      a = a + 1
+    }
 
     // classes
     // syntax: class keyword, name, constructor parameters
