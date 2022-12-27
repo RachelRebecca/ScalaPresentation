@@ -19,7 +19,10 @@ class A2(val name: String, val id: Int) {
   }
 
   override def hashCode(): Int = {
+    // Seq is an immutable sequence - state would be of type ": Seq[Any]"
     val state = Seq(name, id)
+    // state.map(_.hashCode()) is equivalent to state.map(x => x.hashCode())
+    // foldLeft - start at 0 index and recursively apply hash function - process list L -> R
     state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
   }
 
