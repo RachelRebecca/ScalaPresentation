@@ -58,19 +58,80 @@ object Main {
     println(getSquareString(2.5)) // 6.25
 
 
+    // classes
+    // syntax: class keyword, name, constructor parameters
+    class Greeter(prefix: String, suffix: String)
+    {
+      // note :Unit means void
+      def greet(name: String): Unit =
+        println(prefix + " " + name + " " + suffix)
+    }
+
+    val greeter = new Greeter("Hello,", "!")
+    greeter.greet("Rachel Nemesure")
+
+    // case classes
+    /*
+    By default, instances of case classes are immutable,
+    and they are compared by value
+    (unlike classes, whose instances are compared by reference)
+     */
+    // syntax: case class keyword, name, parameter list
+    case class Point(x: Int, y: Int)
+    // case classes do not need to be instantiated with the new keyword
+    val point = Point(1, 2)
+    val anotherPoint = Point(1, 2)
+    val yetAnotherPoint = Point(2, 2)
+
+    // notice the == rather than .equals()
+    if (point == anotherPoint) {
+      println(s"$point and $anotherPoint are the same.")
+    } else
+      println(s"$point and $anotherPoint are different.")
+
+    if (point == yetAnotherPoint)
+      println(s"$point and $yetAnotherPoint are the same.")
+    else
+      println(s"$point and $yetAnotherPoint are different.")
+
+    class A(val name: String, val id: Int)
+    case class B(name: String, id: Int)
+
+    // objects -
+    object Test {
+      val a1 = new A("a", 1)
+      val a2 = new A("a", 1)
+      println(a1 == a2)
+
+      // notice how this is easily accessed - AND notice that id is NOT accessed
+      println(a1.name)
+
+      var b1 = B("b", 1)
+      var b2 = B("b", 1)
+      println(b1 == b2) //this returns true
+
+    }
+    Test // note all I need to do is call the object and it runs
+
+    // TODO: switch A to A2
+    // traits
 
   }
 
   def main(args: Array[String]): Unit = {
+    // TODO: Add program arguments
     println("Hello " + args.mkString(" "))
+    println(args.length)
+    // notice the parentheses to access the first index of args array
+    println(args(0))
 
     // Basic overview of Scala
     notes()
 
     // Primes
-    val calculator = new PrimeCalculator
+   /* val calculator = new PrimeCalculator
     val primesList = calculator.calculatePrimesUntil(100)
-    primesList.foreach(value => println(value))
+    primesList.foreach(value => println(value))*/
   }
 
   def play(y: Int): Int = {
