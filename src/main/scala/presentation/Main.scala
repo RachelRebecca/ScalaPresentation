@@ -3,12 +3,6 @@ package presentation
 object Main {
 
   def main(args: Array[String]): Unit = {
-    // TODO: Add program arguments
-    println("Hello " + args.mkString(" "))
-    println(args.length)
-    // notice the parentheses to access the first index of args array
-    println(args(0))
-
     // Primes
     val primeCalculator = new PrimeCalculator
     val primesList = primeCalculator.calculatePrimesUntil(100)
