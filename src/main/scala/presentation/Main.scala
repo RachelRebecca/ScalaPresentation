@@ -1,19 +1,28 @@
 package presentation
 
 object Main {
+  def f(x: Double): Double = 3 * x * x
+
+  def g(x: Double): Double = 4 * x * x * x
 
   def main(args: Array[String]): Unit = {
     // Primes
     val primeCalculator = new PrimeCalculator
     val primesList = primeCalculator.calculatePrimesUntil(100)
-    primesList.foreach(value => println(value))
+    primesList.foreach(value => print(value + " "))
+    println("\n")
 
     // Midpoint Formula
     val midpointCalculator = new MidpointCalculator
-    // TODO: when n = 10, integralV1 is 66 not 56
-    val integralV1 = midpointCalculator.midpointV1(2, 4, 1000)
-    val integralV2 = midpointCalculator.midpointV2(2, 4, 10)
-    println(integralV1)
-    println(integralV2)
+
+    // TODO: midpoint v1 is very off with n = 10 or n = 100
+    val integralV1F = midpointCalculator.midpointV1(f, 2, 4, 1000)
+    val integralV2F = midpointCalculator.midpointV2(f, 2, 4, 10)
+    println(integralV1F)
+    println(integralV2F)
+    val integralV1G = midpointCalculator.midpointV1(g, 2, 4, 1000)
+    val integralV2G = midpointCalculator.midpointV2(g, 2, 4, 10)
+    println(integralV1G)
+    println(integralV2G)
   }
 }

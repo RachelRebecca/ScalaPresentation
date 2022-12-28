@@ -5,7 +5,7 @@ import scala.collection.mutable.ListBuffer
 class PrimeCalculator {
 
   def calculatePrimesUntil(number: Int): ListBuffer[Int] = {
-    val primes = new ListBuffer[Int]()
+    val primes = new ListBuffer[Int]
 
     for (i <- 2 to number) {
       if (isPrime(i)) {
