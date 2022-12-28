@@ -87,12 +87,9 @@ class Notes {
 
     // 2D for loop
     for {
-      a <- 1 to 3
-      b <- 1 to 3
-    } {
-      println("2D value of a: " + a);
-      println("2D value of b: " + b);
-    }
+      i <- 1 to 3
+      j <- 1 to 3
+    } println(s"i = $i, j = $j")
 
     // while loops
     var a = 15
