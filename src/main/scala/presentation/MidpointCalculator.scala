@@ -1,7 +1,7 @@
 package presentation
 
 class MidpointCalculator {
-  def midpointV1(func:Double=>Double, a: Double, b: Double, n: Int): Double = {
+  def midpointV1(func: Double => Double, a: Double, b: Double, n: Int): Double = {
     val width = (b - a) / n
     var sum: Double = 0.0
     for (i <- 0 to n) {
@@ -11,7 +11,7 @@ class MidpointCalculator {
     width * sum
   }
 
-  def midpointV2(func:Double=>Double, a: Double, b: Double, n: Int): Double = {
+  def midpointV2(func: Double => Double, a: Double, b: Double, n: Int): Double = {
     val width = (b - a) / n
     var z = a + width / 2
     var sum: Double = 0.0
