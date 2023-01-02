@@ -94,7 +94,7 @@ class Notes {
     // while loops
     var a = 15
     while (a < 20) {
-      println("While loop value of a: " + a);
+      println("While loop value of a: " + a)
       a = a + 1
     }
 
@@ -159,7 +159,7 @@ class Notes {
     }
     Test // note all I need to do is call the object and it runs
 
-    // TODO: switch A to syntax.A2
+    // TODO: switch A to A2
 
     // traits
     /*
@@ -174,7 +174,7 @@ class Notes {
     class DefaultGreeter extends GreeterTrait
     class CustomizableGreeter(prefix: String, postfix: String) extends GreeterTrait {
       // note the use of the override keyword
-      override def greet(name: String): Unit =
+       override def greet(name: String): Unit =
         println(prefix + name + postfix)
     }
 
