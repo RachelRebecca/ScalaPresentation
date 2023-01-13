@@ -15,13 +15,12 @@ object Main {
     // Midpoint Formula
     val midpointCalculator = new MidpointCalculator
 
-    // TODO: midpoint v1 is very off with n = 10 or n = 100
     val integralV1F = midpointCalculator.midpointV1(f, 2, 4, 1000)
     val integralV2F = midpointCalculator.midpointV2(f, 2, 4, 10)
     println(integralV1F)
     println(integralV2F)
-    val integralV1G = midpointCalculator.midpointV1(g, 2, 4, 1000)
-    val integralV2G = midpointCalculator.midpointV2(g, 2, 4, 10)
+    val integralV1G: Double = midpointCalculator.midpointV1(g, 2, 4, 1000)
+    val integralV2G: Double = midpointCalculator.midpointV2(g, 2, 4, 10)
     println(integralV1G)
     println(integralV2G)
   }

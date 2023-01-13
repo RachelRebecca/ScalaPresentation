@@ -82,7 +82,7 @@ class Notes {
 
     // for loops
     for (a <- 1 to 3) {
-      println("Value of a: " + a);
+      println("Value of a: " + a)
     }
 
     // 2D for loop
@@ -130,9 +130,9 @@ class Notes {
       println(s"$point and $anotherPoint are different.")
 
     if (point == yetAnotherPoint)
-      println(s"$point and $yetAnotherPoint are the same.")
+      println(s"Then $point and $yetAnotherPoint are the same.")
     else
-      println(s"$point and $yetAnotherPoint are different.")
+      println(s"Then $point and $yetAnotherPoint are different.")
 
     println(point.toString)
 
@@ -149,8 +149,8 @@ class Notes {
       println("a1 name: " + a1.name)
 
       // notice that case class override equals for you
-      val b1 = B("b", 1)
-      val b2 = B("b", 1)
+      val b1: B = B("b", 1)
+      val b2: B = B("b", 1)
 
       // notice that this is accessed without the var keyword
       println("b1 name: " + b1.name)
@@ -174,7 +174,7 @@ class Notes {
     class DefaultGreeter extends GreeterTrait
     class CustomizableGreeter(prefix: String, postfix: String) extends GreeterTrait {
       // note the use of the override keyword
-       override def greet(name: String): Unit =
+      override def greet(name: String): Unit =
         println(prefix + name + postfix)
     }
 

@@ -18,7 +18,7 @@ object NotificationExample {
 
   def main(args: Array[String]): Unit = {
     val someSms: SMS = SMS("12345", "Are you there?")
-    val someVoiceRecording: VoiceRecording = VoiceRecording("Tom", "voicerecording.org/id/123")
+    val someVoiceRecording: VoiceRecording = VoiceRecording("Tom", "voice-recording.org/id/123")
 
     println(showNotification(someSms))
 
